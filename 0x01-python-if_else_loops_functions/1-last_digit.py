@@ -9,6 +9,10 @@ if number < 0:
     number_copy = number * -1
 
 last_digit = number_copy % 10
+
+if number < 0:
+    last_digit *= -1
+
 prefix = "Last digit of"
 
 if last_digit > 5:
