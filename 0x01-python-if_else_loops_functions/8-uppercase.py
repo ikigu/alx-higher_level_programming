@@ -13,10 +13,10 @@ Write a function that prints a string in uppercase followed by a new line.
 """
 
 
-def uppercase(str: str):
+def uppercase(str):
     for i in range(0, len(str)):
 
-        char_in_ascii: int = ord(str[i])
+        char_in_ascii = ord(str[i])
 
         if char_in_ascii > 96 and char_in_ascii < 123:
             char_in_ascii -= 32
