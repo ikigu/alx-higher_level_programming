@@ -13,7 +13,7 @@ listint_t *insert_node(listint_t **head, int number)
 {
 	listint_t *copy_of_current_previous, *previous, *current, *new_node;
 
-	if ((*head)->next == NULL || *head == NULL)
+	if ((*head)->next == NULL)
 	{
 		new_node = add_nodeint_end(head, number);
 		return (new_node);
@@ -41,7 +41,6 @@ listint_t *insert_node(listint_t **head, int number)
 
 	free(new_node);
 	new_node = add_nodeint_end(head, number);
-	printf("I added");
 	return (new_node);
 }
 
