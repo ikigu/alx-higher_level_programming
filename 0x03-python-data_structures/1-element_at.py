@@ -5,7 +5,3 @@ def element_at(my_list, idx):
         return None
 
     return my_list[idx]
-
-
-my_list = [1, 2, 3, 4]
-print("{:d}".format(element_at(my_list, 4)))
