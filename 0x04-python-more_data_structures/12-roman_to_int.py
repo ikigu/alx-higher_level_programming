@@ -1,6 +1,9 @@
 #!/usr/bin/python3
 
 def roman_to_int(roman_string: str) -> int:
+    if not roman_string or type(roman_string) != str:
+        return 0
+
     roman_to_int_dict = {
         'I': 1,
         'V': 5,
@@ -14,8 +17,8 @@ def roman_to_int(roman_string: str) -> int:
     previous = 0
     integized_number = 0
 
-    for i in reversed(range(0, len(roman_string))):
-        current = roman_to_int_dict[roman_string[i]]
+    for letter in reversed(roman_string):
+        current = roman_to_int_dict[letter]
 
         if previous > current:
             integized_number -= current
