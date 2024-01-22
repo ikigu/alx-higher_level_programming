@@ -53,7 +53,7 @@ def safe_print_list_integers(my_list=[], x=0):
 -   `my_list` can contain any type (integer, string, etc.)
 -   All integers have to be printed on the same line followed by a new line - other type of value in the list must be skipped (in silence).
 -   `x` represents the number of elements to access in `my_list`
--   `x can be bigger than the length of my_list - if it’s the case, an exception is expected to occur
+-   `x can be bigger than the length of `my_list` - if it’s the case, an exception is expected to occur
 -   Returns the real number of integers printed
 -   You have to use ` try:` / `except:`
 -   You have to use `"{:d}".format()` to print an integer
@@ -94,7 +94,7 @@ def list_division(my_list_1, my_list_2, list_length):
 -   If an element is not an integer or float:
     -   print: `wrong type`
 -   If the division can’t be done (/0):
-    -   print: `division by 0
+    -   print: `division by 0`
 -   If `my_list_1` or `my_list_2 is too short
     -   print: `out of range`
 -   You have to use `try:` / `except:` / `finally:`
