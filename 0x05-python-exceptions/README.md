@@ -33,10 +33,10 @@ def safe_print_integer(value):
 
 -   `value` can be any type (integer, string, etc.)
 -   The integer should be printed followed by a new line
--   Returns ` True`` if  `value`` has been correctly printed (it means the value is an integer)
+-   Returns ` True` if `value` has been correctly printed (it means the value is an integer)
 -   Otherwise, returns `False`
--   You have to use ` try:`` /  `except:``
--   You have to use `"{:d}".format()`` to print as integer
+-   You have to use `try:` / `except:`
+-   You have to use `"{:d}".format()` to print as integer
 -   You are not allowed to import any module
 -   You are not allowed to use `type()`
 
@@ -55,7 +55,7 @@ def safe_print_list_integers(my_list=[], x=0):
 -   `x` represents the number of elements to access in `my_list`
 -   `x can be bigger than the length of my_list - if it’s the case, an exception is expected to occur
 -   Returns the real number of integers printed
--   You have to use ` try:`` /  `except:`
+-   You have to use ` try:` / `except:`
 -   You have to use `"{:d}".format()` to print an integer
 -   You are not allowed to import any module
 -   You are not allowed to use `len()`
