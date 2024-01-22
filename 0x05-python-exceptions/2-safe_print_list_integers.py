@@ -9,7 +9,7 @@ def safe_print_list_integers(my_list=[], x=0):
             print("{:d}".format(my_list[y]), end="")
             y = y + 1
             z = z + 1
-        except (IndexError, ValueError, TypeError):
+        except (ValueError, TypeError):
             y = y + 1
             continue
 
