@@ -49,16 +49,24 @@ class Square:
         """
         return self.size * self.size
 
-    def my_print(self):
-        """Prints the square with # characters"""
+    def __str__(self):
+        """Prints the square with # characters
+
+        Returns:
+            A string to print
+        """
+
+        string = ""
 
         if self.size == 0:
-            print("")
-            return
+            return string
 
         for _ in range(self.size):
             for _ in range(self.position[0]):
-                print(" ", end="")
+                string += " "
             for _ in range(self.size):
-                print("#", end="")
-            print("")
+                string += "#"
+            else:
+                string += "\n"
+
+        return string
