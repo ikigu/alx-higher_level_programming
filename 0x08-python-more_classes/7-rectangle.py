@@ -76,8 +76,9 @@ class Rectangle:
             return to_print
 
         for row in range(self.__height):
-            for column in range(self.__width):
-                if isinstance(self.print_symbol, (list, set, dict, tuple, int)):
+            for _ in range(self.__width):
+                non_string_types = (list, set, dict, tuple, int)
+                if isinstance(self.print_symbol, non_string_types):
                     to_print += repr(self.print_symbol)
                 else:
                     to_print += (self.print_symbol)
