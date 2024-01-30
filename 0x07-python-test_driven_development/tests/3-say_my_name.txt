@@ -1,0 +1,27 @@
+Tests 3-say_my_name
+
+Module import
+::
+    >>> say_my_name = __import__('3-say_my_name').say_my_name
+
+Correct inputs
+::
+    >>> say_my_name("George") #doctest: +REPORT_NDIFF
+    My name is George 
+
+    >>> say_my_name("George", "Ikigu")
+    My name is George Ikigu
+
+First name is not string
+::
+    >>> say_my_name(1)
+    Traceback (most recent call last):
+    ...
+    TypeError: first_name must be a string
+
+Last name is not string
+::
+    >>> say_my_name("George", 2)
+    Traceback (most recent call last):
+    ...
+    TypeError: last_name must be a string
