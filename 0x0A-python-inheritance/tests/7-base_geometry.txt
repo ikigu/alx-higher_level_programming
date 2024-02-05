@@ -103,3 +103,19 @@ Checking for too many arguments:
 	Traceback (most recent call last):
 	...
 	TypeError: integer_validator() takes 3 positional arguments but 4 were given
+
+Check for documentation
+::
+	>>> module_docstring = __import__('7-base_geometry').__doc__
+	>>> len(module_docstring) > 1
+	True
+
+::
+	>>> class_docstring = __import__('7-base_geometry').BaseGeometry.__doc__
+	>>> len(class_docstring) > 1
+	True
+
+::
+	>>> int_val_doc = __import__('7-base_geometry').BaseGeometry.integer_validator.__doc__
+	>>> len(int_val_doc) > 1
+	True
