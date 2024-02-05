@@ -70,4 +70,36 @@ Test 9: value is less than 0
 	...
 	ValueError: distance must be greater than 0
 
+Test 10: dict type for value
+::
+	>>> bg.integer_validator("dict", {"key": "value"})
+	Traceback (most recent call last):
+	...
+	TypeError: dict must be an integer
 
+Test 11: set type for value
+::
+	>>> bg.integer_validator("frozenset", frozenset(["hey", "nigga"]))
+	Traceback (most recent call last):
+	...
+	TypeError: frozenset must be an integer
+
+
+Test 12: No arguments passed
+::
+	>>> bg.integer_validator()
+	Traceback (most recent call last):
+	...
+	TypeError: BaseGeometry.integer_validator() missing 2 required positional arguments: 'name' and 'value'
+
+Checking for only 1 argument to integer_validator:
+	>>> bg.integer_validator("integer")
+	Traceback (most recent call last):
+	...
+	TypeError: BaseGeometry.integer_validator() missing 1 required positional argument: 'value'
+
+Checking for too many arguments:
+	>>> bg.integer_validator("integer", 1, 2)
+	Traceback (most recent call last):
+	...
+	TypeError: BaseGeometry.integer_validator() takes 3 positional arguments but 4 were given
