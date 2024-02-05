@@ -29,3 +29,18 @@ Check list is unchanged
 	>>> print(my_list)
 	[1, 4, 2, 3, 5]
 
+Add doc test
+::
+	>>> m_doc = __import__('1-my_list').__doc__
+	>>> len(m_doc) > 1
+	True
+
+::
+	>>> c_doc = __import__('1-my_list').MyList.__doc__
+	>>> len(c_doc) > 1
+	True
+
+::
+	>>> method_doc = __import__('1-my_list').MyList.print_sorted.__doc__
+	>>> len(method_doc) > 1
+	True
