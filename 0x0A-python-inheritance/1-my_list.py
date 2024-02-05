@@ -10,6 +10,7 @@ class MyList(list):
         super().__init__()
 
     def print_sorted(self):
+        """prints sorted list"""
         list_cp = self[:]
         list_cp.sort()
         print(list_cp)
