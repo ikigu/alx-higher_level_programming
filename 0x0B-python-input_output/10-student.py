@@ -19,13 +19,14 @@ class Student():
         if attrs is None:
             return self.__dict__
 
-        if len(attrs) > 0:
-            _dict = {}
+        if type(attrs) == list:
+            if all(type(element) == str for element in attrs):
+                _dict = {}
 
-            for attr in attrs:
-                try:
-                    _dict[attr] = self.__dict__[attr]
-                except KeyError:
-                    pass
+                for attr in attrs:
+                    try:
+                        _dict[attr] = self.__dict__[attr]
+                    except KeyError:
+                        pass
 
-            return _dict
+                return _dict
