@@ -40,4 +40,7 @@ class Base():
                 raise TypeError(
                     "list_dictionaries must be a list of dictionaries")
 
+        if len(list_dictionaries) == 0:
+            return "[]"
+
         return json.dumps(list_dictionaries)
