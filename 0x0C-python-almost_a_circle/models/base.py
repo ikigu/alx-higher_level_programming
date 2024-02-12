@@ -50,3 +50,10 @@ class Base():
                     new_list.append(obj.to_dictionary())
 
             f.write(Base.to_json_string(new_list))
+
+    @staticmethod
+    def from_json_string(json_string):
+        if json_string is None or json_string == "":
+            return []
+        else:
+            return json.loads(json_string)
