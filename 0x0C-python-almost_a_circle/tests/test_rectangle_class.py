@@ -346,6 +346,9 @@ class TestRectangleClass(unittest.TestCase):
         self.assertNotEqual(r1, r2)
         self.assertEqual(r1_todict, r2.to_dictionary())
 
+        del r1
+        del r2
+
 
 if __name__ == "__main__":
     unittest.main()
