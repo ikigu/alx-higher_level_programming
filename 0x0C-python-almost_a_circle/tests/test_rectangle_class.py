@@ -23,6 +23,7 @@ class TestRectangleClass(unittest.TestCase):
         self.assertTrue(len(Rectangle.__str__.__doc__) > 1)
         self.assertTrue(len(Rectangle.height.__doc__) > 1)
         self.assertTrue(len(Rectangle.width.__doc__) > 1)
+        self.assertTrue(len(Rectangle.to_dictionary.__doc__) > 1)
 
     def test_id(self):
         """Rectangle 1"""
@@ -329,6 +330,21 @@ class TestRectangleClass(unittest.TestCase):
         self.assertEqual(r1.__str__(), "[Rectangle] (214) 3/21 - 67/738")
 
         del r1
+
+    def test_to_dictionary(self):
+        r1 = Rectangle(10, 2, 1, 9)
+        r2 = Rectangle(2, 2)
+        r1_todict = r1.to_dictionary()
+
+        self.assertEqual(
+            r1_todict, {'id': 1, 'width': 10, 'height': 2, 'x': 1, 'y': 9})
+        self.assertEqual(r2.__str__(), "[Rectangle] (2) 0/0 - 2/2")
+        self.assertEqual(type(r1_todict), dict)
+
+        r2.update(**r1_todict)
+        self.assertEqual(r1.__str__(), r2.__str__())
+        self.assertNotEqual(r1, r2)
+        self.assertEqual(r1_todict, r2.to_dictionary())
 
 
 if __name__ == "__main__":
