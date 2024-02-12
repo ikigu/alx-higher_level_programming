@@ -11,13 +11,18 @@ from unittest.mock import patch
 class TestRectangleClass(unittest.TestCase):
     """Tests Rectangle Class"""
 
-    def test__docs(self):
+    def test__doc(self):
         """Verify that module, class and methods are documented"""
 
         self.assertTrue(len(models.rectangle.__doc__) > 1)
         self.assertTrue(len(Rectangle.__init__.__doc__) > 1)
         self.assertTrue(len(Rectangle.__doc__) > 1)
         self.assertTrue(len(Rectangle.area.__doc__) > 1)
+        self.assertTrue(len(Rectangle.display.__doc__) > 1)
+        self.assertTrue(len(Rectangle.update.__doc__) > 1)
+        self.assertTrue(len(Rectangle.__str__.__doc__) > 1)
+        self.assertTrue(len(Rectangle.height.__doc__) > 1)
+        self.assertTrue(len(Rectangle.width.__doc__) > 1)
 
     def test_1(self):
         """Rectangle 1"""
