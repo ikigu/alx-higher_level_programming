@@ -56,6 +56,12 @@ class TestsquareClass(unittest.TestCase):
         with self.assertRaises(TypeError) as context:
             r1.size = (2, 9)
         self.assertEqual(context.exception.args[0], "width must be an integer")
+        with self.assertRaises(ValueError) as context:
+            r1.size = -98
+        self.assertEqual(context.exception.args[0], "width must be > 0")
+        with self.assertRaises(ValueError) as context:
+            r1.size = 0
+        self.assertEqual(context.exception.args[0], "width must be > 0")
 
         r1.size = 98
 
