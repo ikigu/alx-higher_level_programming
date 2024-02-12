@@ -54,6 +54,19 @@ class TestBaseClass(unittest.TestCase):
         self.assertEqual(json.loads(json_dictionary), [dictionary])
         self.assertEqual(type(json_dictionary), str)
 
+    def test_empty_list_for_json(self):
+        """test"""
+
+        empty_string_array = Base.to_json_string(None)
+        self.assertEqual("[]", empty_string_array)
+
+        empty_string_array = Base.to_json_string([])
+        self.assertEqual("[]", empty_string_array)
+
+    # def test_wrong_types_to_json(self):
+    #     with self.assertRaises(TypeError):
+    #         Base.to_json_string({"t": "g"})
+
 
 if __name__ == "__main__":
     unittest.main()
