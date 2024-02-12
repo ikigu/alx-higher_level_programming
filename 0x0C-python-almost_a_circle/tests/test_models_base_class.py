@@ -7,6 +7,8 @@
 import unittest
 import models.base
 from models.base import Base
+from models.rectangle import Rectangle
+import json
 
 
 class TestBaseClass(unittest.TestCase):
@@ -39,6 +41,18 @@ class TestBaseClass(unittest.TestCase):
         del b3
         del b4
         del b5
+
+    def test_json(self):
+        """test json"""
+        r1 = Rectangle(10, 7, 2, 8)
+        dictionary = r1.to_dictionary()
+        json_dictionary = Base.to_json_string([dictionary])
+
+        self.assertEqual(
+            dictionary, {'x': 2, 'width': 10, 'id': 1, 'height': 7, 'y': 8})
+        self.assertEqual(type(dictionary), dict)
+        self.assertEqual(json.loads(json_dictionary), [dictionary])
+        self.assertEqual(type(json_dictionary), str)
 
 
 if __name__ == "__main__":
