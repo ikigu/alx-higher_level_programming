@@ -68,3 +68,41 @@ class TestsquareClass(unittest.TestCase):
         r1.size = 98
 
         self.assertEqual(98, r1.size)
+
+    def test_update_0(self):
+        r1 = Square(10, 10, 10, 10)
+        self.assertEqual(r1.__str__(), "[Square] (10) 10/10 - 10")
+
+        r1.update(89)
+        self.assertEqual(r1.__str__(), "[Square] (89) 10/10 - 10")
+
+        r1.update(89, 2)
+        self.assertEqual(r1.__str__(), "[Square] (89) 10/10 - 2")
+
+        r1.update(89, 2, 3)
+        self.assertEqual(r1.__str__(), "[Square] (89) 3/10 - 2")
+
+        r1.update(89, 2, 3, 4)
+        self.assertEqual(r1.__str__(), "[Square] (89) 3/4 - 2")
+
+        del r1
+
+    def test_kwargs(self):
+        r1 = Square(10, 10, 10, 10)
+
+        r1.update(89, 3, x=9)
+        self.assertEqual(r1.__str__(), "[Square] (89) 10/10 - 3")
+
+        r1.update(x=9)
+        self.assertEqual(r1.__str__(), "[Square] (89) 9/10 - 3")
+
+        r1.update(id=987)
+        self.assertEqual(r1.__str__(), "[Square] (987) 9/10 - 3")
+
+        r1.update(y=987)
+        self.assertEqual(r1.__str__(), "[Square] (987) 9/987 - 3")
+
+        r1.update(214, 67, 738, 3)
+        self.assertEqual(r1.__str__(), "[Square] (214) 738/3 - 67")
+
+        del r1
