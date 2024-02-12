@@ -32,15 +32,29 @@ class Base():
         if list_dictionaries is None:
             return "[]"
 
-        if type(list_dictionaries) != list:
-            raise TypeError("list_dictionaries must be a list of dictionaries")
+        # if type(list_dictionaries) != list:
+        #     raise TypeError("list_dictionaries must be a list of dictionaries")
 
-        for item in list_dictionaries:
-            if type(item) != dict:
-                raise TypeError(
-                    "list_dictionaries must be a list of dictionaries")
+        # for item in list_dictionaries:
+        #     if type(item) != dict:
+        #         raise TypeError(
+        #             "list_dictionaries must be a list of dictionaries")
 
         if len(list_dictionaries) == 0:
             return "[]"
 
         return json.dumps(list_dictionaries)
+
+    @classmethod
+    def save_to_file(cls, list_objs):
+        file_name = cls.__name__ + ".json"
+        new_list = []
+
+        with open(file_name, "w", encoding="utf-8") as f:
+            if list_objs is None:
+                return f.write("[]")
+            else:
+                for obj in list_objs:
+                    new_list.append(obj.to_dictionary())
+
+            f.write(Base.to_json_string(new_list))
