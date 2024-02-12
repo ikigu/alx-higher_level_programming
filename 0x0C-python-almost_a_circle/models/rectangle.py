@@ -83,20 +83,15 @@ class Rectangle(Base):
         return self.__width * self.__height
 
     def display(self):
-        """print out the object"""
-        h = 0
-        w = 0
-
-        while h < self.__height:
-
-            while w < self.__width:
-                print("#", end="")
-                w += 1
-
+        """Displays the rectangle using # """
+        for y in range(self.y):
             print("")
-
-            w = 0
-            h += 1
+        for row in range(self.__height):
+            for x in range(self.x):
+                print(" ", end="")
+            for column in range(self.__width):
+                print("#", end="")
+            print()
 
     def __str__(self):
         """Return the string representation of the object"""
