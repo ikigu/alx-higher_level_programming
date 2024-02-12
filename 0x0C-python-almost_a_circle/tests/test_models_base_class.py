@@ -9,6 +9,7 @@ import models.base
 from models.base import Base
 from models.rectangle import Rectangle
 import json
+from models.square import Square
 
 
 class TestBaseClass(unittest.TestCase):
@@ -66,6 +67,23 @@ class TestBaseClass(unittest.TestCase):
     # def test_wrong_types_to_json(self):
     #     with self.assertRaises(TypeError):
     #         Base.to_json_string({"t": "g"})
+
+    def test_save_to_file(self):
+        r1 = Rectangle(10, 7, 2, 8)
+        r2 = Rectangle(2, 4)
+        Rectangle.save_to_file([r1, r2])
+        Square.save_to_file(None)
+
+        with open("Rectangle.json", 'r', encoding='utf-8') as file:
+            content = json.loads(file.read())
+            expected = [{"y": 8, "x": 2, "id": 1, "width": 10, "height": 7}, {
+                "y": 0, "x": 0, "id": 2, "width": 2, "height": 4}]
+            self.assertTrue(content == expected)
+
+        with open("Square.json", 'r', encoding='utf-8') as f:
+            content = json.loads(f.read())
+            expected = []
+            self.assertTrue(content == expected)
 
 
 if __name__ == "__main__":
