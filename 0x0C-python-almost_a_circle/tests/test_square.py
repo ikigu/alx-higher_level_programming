@@ -37,3 +37,15 @@ class TestsquareClass(unittest.TestCase):
     def test_no_attributes(self):
         with self.assertRaises(TypeError):
             s1 = Square()
+
+    def test_str(self):
+        r3 = Square(3, 4, 5)
+
+        self.assertEqual(r3.__str__(), "[Square] (1) 4/5 - 3")
+
+        del r3
+
+    def test_integer_validation(self):
+        with self.assertRaises(TypeError) as context:
+            r1 = Square("9")
+        self.assertEqual(context.exception.args[0], "width must be an integer")
