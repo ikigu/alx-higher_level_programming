@@ -32,4 +32,11 @@ class Base():
         if list_dictionaries is None:
             return "[]"
 
+        if type(list_dictionaries) != list:
+            return "[]"
+
+        for item in list_dictionaries:
+            if type(item) != dict:
+                return "[]"
+
         return json.dumps(list_dictionaries)
