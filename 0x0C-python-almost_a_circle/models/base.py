@@ -3,6 +3,9 @@
 """My Base class"""
 
 
+import json
+
+
 class Base():
     """The Base class"""
 
@@ -22,3 +25,11 @@ class Base():
             Base.__nb_objects -= 1
 
         del self
+
+    @staticmethod
+    def to_json_string(list_dictionaries):
+        """Turn to json"""
+        if list_dictionaries is None:
+            return "[]"
+
+        return json.dumps(list_dictionaries)
