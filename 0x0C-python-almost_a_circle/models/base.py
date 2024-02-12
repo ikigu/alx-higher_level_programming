@@ -32,14 +32,6 @@ class Base():
         if list_dictionaries is None:
             return "[]"
 
-        # if type(list_dictionaries) != list:
-        #     raise TypeError("list_dictionaries must be a list of dictionaries")
-
-        # for item in list_dictionaries:
-        #     if type(item) != dict:
-        #         raise TypeError(
-        #             "list_dictionaries must be a list of dictionaries")
-
         if len(list_dictionaries) == 0:
             return "[]"
 
