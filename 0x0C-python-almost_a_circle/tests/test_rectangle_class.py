@@ -24,34 +24,46 @@ class TestRectangleClass(unittest.TestCase):
         self.assertTrue(len(Rectangle.height.__doc__) > 1)
         self.assertTrue(len(Rectangle.width.__doc__) > 1)
 
-    def test_1(self):
+    def test_id(self):
         """Rectangle 1"""
 
         r1 = Rectangle(10, 2)
         r2 = Rectangle(37, 14)
         r3 = Rectangle(10, 2, 0, 0, 12)
         r4 = Rectangle(14, 7)
+        r5 = Rectangle(13, 45, 55, 6, "Bread")
 
         self.assertEqual(r1.id, 1)
         self.assertEqual(r2.id, 2)
         self.assertEqual(r3.id, 12)
         self.assertEqual(r4.id, 3)
+        self.assertEqual(r5.id, "Bread")
 
         del r1
         del r2
         del r3
         del r4
+        del r5
 
     def test_integer_validation(self):
-        # strings
-        with self.assertRaises(TypeError):
+        """Test string attributes"""
+        with self.assertRaises(TypeError) as context:
             Rectangle("10", 5)
+        self.assertTrue(
+            context.exception.args[0] == "width must be an integer"
+        )
 
-        with self.assertRaises(TypeError):
+        with self.assertRaises(TypeError) as context:
             Rectangle(10, "5")
+        self.assertTrue(
+            context.exception.args[0] == "height must be an integer"
+        )
 
-        with self.assertRaises(TypeError):
+        with self.assertRaises(TypeError) as context:
             Rectangle("10", "5")
+        self.assertTrue(
+            context.exception.args[0] == "width must be an integer"
+        )
 
         with self.assertRaises(TypeError) as context:
             Rectangle(10, 6, "7", 8)
@@ -63,18 +75,6 @@ class TestRectangleClass(unittest.TestCase):
             Rectangle(10, 6, 7, "8")
         self.assertTrue(
             context.exception.args[0] == "y must be an integer"
-        )
-
-        # Other types
-        with self.assertRaises(TypeError) as context:
-            Rectangle([10, "n"], 5)
-        self.assertTrue(
-            context.exception.args[0] == "width must be an integer")
-
-        with self.assertRaises(TypeError) as context:
-            Rectangle(10, (5, 3))
-        self.assertTrue(
-            context.exception.args[0] == "height must be an integer"
         )
 
         with self.assertRaises(TypeError) as context:
@@ -111,11 +111,6 @@ class TestRectangleClass(unittest.TestCase):
             context.exception.args[0] == "height must be > 0"
         )
         with self.assertRaises(ValueError) as context:
-            Rectangle(1, 1, -3, 5)
-        self.assertTrue(
-            context.exception.args[0] == "x must be >= 0"
-        )
-        with self.assertRaises(ValueError) as context:
             Rectangle(1, 1, -67, 5)
         self.assertTrue(
             context.exception.args[0] == "x must be >= 0"
@@ -124,6 +119,121 @@ class TestRectangleClass(unittest.TestCase):
             Rectangle(1, 1, 5, -5)
         self.assertTrue(
             context.exception.args[0] == "y must be >= 0"
+        )
+
+    def test_dict_attributes(self):
+        """Test dict"""
+        with self.assertRaises(TypeError) as context:
+            Rectangle({"10": "n"}, 5)
+        self.assertTrue(
+            context.exception.args[0] == "width must be an integer")
+
+        with self.assertRaises(TypeError) as context:
+            Rectangle(10, {"5": "3"})
+        self.assertTrue(
+            context.exception.args[0] == "height must be an integer"
+        )
+        with self.assertRaises(TypeError) as context:
+            Rectangle(4, 5, {"5": "4"})
+        self.assertTrue(
+            context.exception.args[0] == "x must be an integer")
+
+        with self.assertRaises(TypeError) as context:
+            Rectangle(10, 5, 3, {"5": "4"})
+        self.assertTrue(
+            context.exception.args[0] == "y must be an integer"
+        )
+
+    def test_tuple_attributes(self):
+        """Test Tuple attributes"""
+        with self.assertRaises(TypeError) as context:
+            Rectangle((1, 3), 5)
+        self.assertTrue(
+            context.exception.args[0] == "width must be an integer")
+
+        with self.assertRaises(TypeError) as context:
+            Rectangle(10, (1, 3))
+        self.assertTrue(
+            context.exception.args[0] == "height must be an integer"
+        )
+        with self.assertRaises(TypeError) as context:
+            Rectangle(4, 5, (1, 3))
+        self.assertTrue(
+            context.exception.args[0] == "x must be an integer")
+
+        with self.assertRaises(TypeError) as context:
+            Rectangle(10, 5, 3, (1, 3))
+        self.assertTrue(
+            context.exception.args[0] == "y must be an integer"
+        )
+
+    def test_float_attributes(self):
+        """Test float attributes"""
+        with self.assertRaises(TypeError) as context:
+            Rectangle(1.3, 5)
+        self.assertTrue(
+            context.exception.args[0] == "width must be an integer")
+
+        with self.assertRaises(TypeError) as context:
+            Rectangle(10, 1.3)
+        self.assertTrue(
+            context.exception.args[0] == "height must be an integer"
+        )
+        with self.assertRaises(TypeError) as context:
+            Rectangle(4, 5, 1.3)
+        self.assertTrue(
+            context.exception.args[0] == "x must be an integer")
+
+        with self.assertRaises(TypeError) as context:
+            Rectangle(10, 5, 3, 1.3)
+        self.assertTrue(
+            context.exception.args[0] == "y must be an integer"
+        )
+
+    def test_bool_attributes(self):
+        """Test bool attributes"""
+        with self.assertRaises(TypeError) as context:
+            Rectangle(True, 5)
+        self.assertTrue(
+            context.exception.args[0] == "width must be an integer")
+
+        with self.assertRaises(TypeError) as context:
+            Rectangle(10, False)
+        self.assertTrue(
+            context.exception.args[0] == "height must be an integer"
+        )
+        with self.assertRaises(TypeError) as context:
+            Rectangle(4, 5, True)
+        self.assertTrue(
+            context.exception.args[0] == "x must be an integer")
+
+        with self.assertRaises(TypeError) as context:
+            Rectangle(10, 5, 3, False)
+        self.assertTrue(
+            context.exception.args[0] == "y must be an integer"
+        )
+
+    def test_none_attributes(self):
+        """Test NoneType"""
+        with self.assertRaises(TypeError) as context:
+            Rectangle(None, 5)
+        self.assertTrue(
+            context.exception.args[0] == "width must be an integer")
+
+        with self.assertRaises(TypeError) as context:
+            Rectangle(10, None)
+        self.assertTrue(
+            context.exception.args[0] == "height must be an integer"
+        )
+        with self.assertRaises(TypeError) as context:
+            Rectangle(4, 5, None)
+        self.assertTrue(
+            context.exception.args[0] == "x must be an integer")
+
+        with self.assertRaises(TypeError) as context:
+            Rectangle(10, 5, 3, None)
+        self.assertTrue(
+            context.exception.args[0] == "y must be an integer"
         )
 
     def test_rectangle_area(self):
