@@ -101,6 +101,16 @@ class TestBaseClass(unittest.TestCase):
         self.assertEqual(empty_list, [])
         self.assertEqual(empty_list_also, [])
 
+    def test_create(self):
+        kwar = {"height": 9, "width": 2, "id": "bear", "x": 78, "y": 17}
+        kwas = {"size": 8, "x": 8, "y": 4, "id": 18}
+
+        s = Square.create(**kwas)
+        r = Rectangle.create(**kwar)
+
+        self.assertEqual(s.to_dictionary(), kwas)
+        self.assertEqual(r.to_dictionary(), kwar)
+
 
 if __name__ == "__main__":
     unittest.main()
