@@ -6,9 +6,11 @@
 
 import unittest
 import models.base
+import json
+import os
+
 from models.base import Base
 from models.rectangle import Rectangle
-import json
 from models.square import Square
 
 
@@ -110,6 +112,43 @@ class TestBaseClass(unittest.TestCase):
 
         self.assertEqual(s.to_dictionary(), kwas)
         self.assertEqual(r.to_dictionary(), kwar)
+
+    def test_load_from_file(self):
+        try:
+            os.remove("Rectangle.json")
+            os.remove("Square.json")
+        except FileNotFoundError:
+            pass
+
+        empty_rectangles = Rectangle.load_from_file()
+        empty_squares = Square.load_from_file()
+
+        self.assertEqual(empty_rectangles, [])
+        self.assertEqual(empty_squares, [])
+
+        r1 = Rectangle(10, 7, 2, 8)
+        r2 = Rectangle(2, 4)
+        list_rectangles_input = [r1, r2]
+
+        Rectangle.save_to_file(list_rectangles_input)
+        list_rectangles_output = Rectangle.load_from_file()
+
+        self.assertEqual(
+            list_rectangles_output[0].to_dictionary(), r1.to_dictionary())
+        self.assertEqual(
+            list_rectangles_output[1].to_dictionary(), r2.to_dictionary())
+
+        s1 = Square(5)
+        s2 = Square(7, 9, 1)
+        list_squares_input = [s1, s2]
+
+        Square.save_to_file(list_squares_input)
+        list_squares_output = Square.load_from_file()
+
+        self.assertEqual(
+            list_squares_output[0].to_dictionary(), s1.to_dictionary())
+        self.assertEqual(
+            list_squares_output[1].to_dictionary(), s2.to_dictionary())
 
 
 if __name__ == "__main__":
