@@ -4,6 +4,7 @@
 
 
 import json
+import os
 
 
 class Base():
@@ -39,6 +40,7 @@ class Base():
 
     @classmethod
     def save_to_file(cls, list_objs):
+        """Saves Base object to a json file with class name"""
         file_name = cls.__name__ + ".json"
         new_list = []
 
@@ -53,6 +55,7 @@ class Base():
 
     @staticmethod
     def from_json_string(json_string):
+        """Static method to convert string to object"""
         if json_string is None or json_string == "":
             return []
         else:
@@ -68,3 +71,20 @@ class Base():
 
         dummy.update(**dictionary)
         return dummy
+
+    @classmethod
+    def load_from_file(cls) -> list:
+        """Reads from json file and loads a list into a Python object"""
+        filepath = cls.__name__ + ".json"
+
+        if os.path.exists(filepath):
+            with open(filepath, 'r', encoding='utf-8') as f:
+                return_list = []
+                content = f.read()
+                content_object = cls.from_json_string(content)
+
+                for item in content_object:
+                    return_list.append(cls.create(**item))
+                return return_list
+        else:
+            return []
