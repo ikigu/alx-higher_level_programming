@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+cat "$1" | mysql -hlocalhost -u ikigu -p "$2"
