@@ -1,0 +1,3 @@
+-- list all cities in hbtn_0d_usa
+--      sort results in ascending order by cities.id
+--      use only one select statement
