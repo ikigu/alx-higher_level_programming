@@ -8,7 +8,7 @@ function findSecondBiggest () {
   for (let i = 0; i < args.length; i++) {
     args[i] = parseInt(args[i]);
   }
-  
+
   args.sort((a, b) => b - a);
   console.log(args[1]);
 }
