@@ -9,7 +9,7 @@ if (Number.isNaN(firstArgumentAsNumber)) {
   let x = 0;
 
   while (x < firstArgumentAsNumber) {
-    stringToPrint += 'x';
+    stringToPrint += 'X';
     x++;
   }
 
