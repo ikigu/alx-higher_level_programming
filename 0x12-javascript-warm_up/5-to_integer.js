@@ -5,5 +5,5 @@ const firstArgumentAsNumber = parseInt(process.argv[2]);
 if (Number.isNaN(firstArgumentAsNumber)) {
   console.log('Not a number');
 } else {
-	console.log(firstArgumentAsNumber);
+  console.log(firstArgumentAsNumber);
 }
