@@ -3,8 +3,8 @@
 const firstArgumentAsNumber = parseInt(process.argv[2]);
 const secondArgumentAsNumber = parseInt(process.argv[3]);
 
-function add(a, b) {
-  console.log(a + b);
+function add (a, b) {
+  return a + b;
 }
 
-add(firstArgumentAsNumber, secondArgumentAsNumber);
+console.log(add(firstArgumentAsNumber, secondArgumentAsNumber));
