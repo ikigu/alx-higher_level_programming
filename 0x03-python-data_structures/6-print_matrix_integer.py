@@ -3,6 +3,7 @@
 def print_matrix_integer(matrix=[[]]):
     if len(matrix[0]) == 0 and len(matrix) == 1:
         print("")
+        return
 
     for list in matrix:
         for i in range(0, len(list)):
