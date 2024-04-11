@@ -18,8 +18,7 @@ if __name__ == "__main__":
     query_rows = cursor.fetchall()
 
     for row in query_rows:
-        for col in row:
-            print(f"({col.id}, '{col.name}')")
+       print(row)
 
     cursor.close()
     db.close()
