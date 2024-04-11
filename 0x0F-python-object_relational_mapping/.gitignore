@@ -1,0 +1,4 @@
+venv/
+6*
+*.sql
+__pycache__
