@@ -2,11 +2,18 @@
 
 """Creates the State Model and Table"""
 
-from sqlalchemy import create_engine, Column, Integer, String, Sequence
+from sqlalchemy import Column, Integer, String, Sequence
+from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy.orm import sessionmaker
+from sqlalchemy.engine.url import URL
+
 
 Base = declarative_base()
+sql_db = {'drivername': 'mysql',
+          'host': 'localhost',
+          'port': 3306
+}
+engine = create_engine(URL(**sql_db))
 
 
 class State(Base):
