@@ -15,7 +15,9 @@ if __name__ == "__main__":
     DATABASE_NAME = sys.argv[3]
     state_name = sys.argv[4]
 
-    state_name = state_name.split("'")[0]
+    print(state_name)
+
+    state_name = state_name.replace("'", "")
 
     db = MySQLdb.connect(host="localhost", port=3306,
                          user=USER, passwd=PASSWORD, db=DATABASE_NAME)
