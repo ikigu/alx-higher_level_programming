@@ -9,13 +9,18 @@ from sqlalchemy.engine.url import URL
 
 
 Base = declarative_base()
-sql_db = {'drivername': 'mysql',
-          'host': 'localhost',
-          'port': 3306}
-engine = create_engine(URL(**sql_db))
 
 
 class State(Base):
+    """
+    State class
+
+    Attributes:
+        __tablename__ (str): The table mapped to State class
+        id (int): The state id
+        name (str): The name of the state
+    """
+
     __tablename__ = 'states'
 
     id = Column(Integer, Sequence('state_id_seq'), autoincrement=True,
