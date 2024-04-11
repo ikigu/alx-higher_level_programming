@@ -8,7 +8,7 @@ the user passes as the fourth argument
 
 if __name__ == "__main__":
     import sys
-    import MySQLdb
+    import MySQLdb  # type: ignore
 
     USER = sys.argv[1]
     PASSWORD = sys.argv[2]

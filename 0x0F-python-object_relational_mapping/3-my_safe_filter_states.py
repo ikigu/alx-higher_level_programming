@@ -8,7 +8,7 @@ The user input is validated to guard against SQL injections.
 
 if __name__ == "__main__":
     import sys
-    import MySQLdb
+    import MySQLdb  # type: ignore
 
     USER = sys.argv[1]
     PASSWORD = sys.argv[2]
