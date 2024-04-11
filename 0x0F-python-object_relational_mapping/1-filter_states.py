@@ -7,7 +7,7 @@ from the hbtn_0e_0_usa database that begin with N
 
 if __name__ == "__main__":
     import sys
-    import MySQLdb
+    import MySQLdb  # type: ignore
 
     USER = sys.argv[1]
     PASSWORD = sys.argv[2]
