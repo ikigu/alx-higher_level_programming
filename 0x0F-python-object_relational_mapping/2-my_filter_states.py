@@ -1,8 +1,9 @@
 #!/usr/bin/python3
 
 """
-This module lists all states
-from the hbtn_0e_0_usa database that begin with N
+This module lists all states from the
+hbtn_0e_0_usa database whose name is what
+the user passes as the fourth argument
 """
 
 if __name__ == "__main__":
