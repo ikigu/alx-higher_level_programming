@@ -18,7 +18,7 @@ if __name__ == "__main__":
                          user=USER, passwd=PASSWORD, db=DATABASE_NAME)
     cursor = db.cursor()
     cursor.execute('SELECT * FROM states \
-                   WHERE name = {} ORDER BY id ASC'.format(STATE_NAME))
+                   WHERE name = "{}" ORDER BY id ASC'.format(STATE_NAME))
 
     query_rows = cursor.fetchall()
 
