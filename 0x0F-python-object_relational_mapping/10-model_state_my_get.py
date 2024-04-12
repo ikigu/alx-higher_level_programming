@@ -41,9 +41,11 @@ if __name__ == '__main__':
 
     state_name_search_term = argv[4]
 
-    states = session.query(State).filter(
+    state = session.query(State).filter(
         State.name.like(f'%{state_name_search_term}%')).order_by(
-            State.id).all()
+            State.id).first()
 
-    for instance in states:
-        print(f'{instance.id}: {instance.name}')
+    if state is not None:
+        print(f'{state.id}')
+    else:
+        print('Not found')
