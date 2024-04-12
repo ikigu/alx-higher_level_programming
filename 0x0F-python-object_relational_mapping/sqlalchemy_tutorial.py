@@ -37,6 +37,24 @@ Base = declarative_base()
 # a real DBAPI connection to the database, which is used to emit SQL.
 # With the ORM, we won't interact with the Engine directly.
 
+# This code will make it easier to create an engine
+
+"""
+>>> from sqlalchemy.engine.url import URL
+>>> from sys import argv
+
+>>> sql_db = {
+...    'drivername': 'mysql+mysqldb',
+...    'host': 'localhost',
+...    'port': 3306,
+...    'username': argv[1],
+...    'password': argv[2],
+...    'database': argv[3]
+... }
+
+>>> engine = create_engine(URL.create(**sql_db))
+"""
+
 engine = create_engine('mysql://ikigu:h1t quan@localhost/sqlalchemy')
 
 # engine = create_engine('sqlite:///:memory:', echo=False)
