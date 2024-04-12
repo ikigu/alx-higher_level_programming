@@ -41,7 +41,7 @@ engine = create_engine('mysql://ikigu:h1t quan@localhost/sqlalchemy')
 
 # engine = create_engine('sqlite:///:memory:', echo=False)
 
-# The Session is he ORM's handle to the database. It lets us talk to the database
+# Session is the ORM's handle to the database. It lets us talk to the database.
 Session = sessionmaker(bind=engine)
 
 
