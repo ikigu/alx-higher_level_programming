@@ -41,7 +41,8 @@ if __name__ == '__main__':
 
     state_name_search_term = argv[4]
 
-    state = session.query(State).filter(State.name == state_name_search_term)
+    state = session.query(State).filter(
+        State.name == state_name_search_term).first()
 
     if state is not None:
         print(f'{state.id}')
