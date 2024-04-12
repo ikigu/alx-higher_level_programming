@@ -39,3 +39,4 @@ if __name__ == '__main__':
     state = session.query(State).filter_by(id=2).first()
     state.name = 'Mexico'
     session.commit()
+    session.close()
