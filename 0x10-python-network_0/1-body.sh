@@ -1,3 +1,3 @@
 #!/bin/bash
 # Display the response body of requested URL
-curl -s "$1"
+if [ $(curl -s -o response.txt -w "%{response_code}" "$1") == "200" ]; then cat response.txt; fi
