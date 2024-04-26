@@ -23,12 +23,12 @@ if __name__ == "__main__":
     if response.ok:
         response = response.json()
 
-        for i in range(0, 10):
+        try:
+            for i in range(0, 10):
 
-            sha_code = response[i]["sha"]
-            author = response[i]["commit"]["author"]["name"]
+                sha_code = response[i]["sha"]
+                author = response[i]["commit"]["author"]["name"]
 
-            print(
-                f'{sha_code}: {author}')
-    else:
-        print(None)
+                print(f'{sha_code}: {author}')
+        except IndexError:
+            pass
