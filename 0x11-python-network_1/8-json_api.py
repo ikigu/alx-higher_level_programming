@@ -26,7 +26,7 @@ if __name__ == '__main__':
     if len(sys.argv) == 2:
         params['q'] = sys.argv[1]
 
-    url = 'http://0.0.0.0/search_user'
+    url = 'http://0.0.0.0:5000/search_user'
 
     response = requests.post(url, data=params)
 
