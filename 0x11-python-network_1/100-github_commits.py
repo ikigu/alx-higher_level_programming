@@ -14,9 +14,11 @@ if __name__ == "__main__":
 
     headers = {'Accept': 'application/vnd.github+json'}
 
+    params = {'per_page': 10, 'page': 1}
+
     response = requests.get(
         f'https://api.github.com/repos/{owner}/{repo}/commits',
-        headers=headers,)
+        headers=headers, params=params)
 
     if response.ok:
         response = response.json()
