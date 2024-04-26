@@ -38,5 +38,4 @@ if __name__ == '__main__':
     if len(resp_content) == 0:
         print("No result")
     else:
-        for k, v in resp_content.items():
-            print(f'[{k}] {v}')
+        print(f'[{resp_content["id"]}] {resp_content["name"]}')
