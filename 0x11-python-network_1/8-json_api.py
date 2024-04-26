@@ -32,10 +32,9 @@ if __name__ == '__main__':
 
     try:
         resp_content = response.json()
+        if resp_content == {}:
+            print('No result')
+        else:
+            print(f'[{resp_content["id"]}] {resp_content["name"]}')
     except ValueError:
-        print("Not a valid JSON")
-
-    if len(resp_content) == 0:
-        print("No result")
-    else:
-        print(f'[{resp_content["id"]}] {resp_content["name"]}')
+        print('Not a valid JSON')
