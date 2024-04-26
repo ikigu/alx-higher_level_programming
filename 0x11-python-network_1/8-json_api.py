@@ -39,4 +39,4 @@ if __name__ == '__main__':
         print("No result")
     else:
         for k, v in resp_content.items():
-            print(f'[{k}] v')
+            print(f'[{k}] {v}')
