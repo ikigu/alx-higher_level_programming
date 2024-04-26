@@ -28,7 +28,7 @@ if __name__ == '__main__':
 
     url = 'http://0.0.0.0/search_user'
 
-    response = requests.post(url, params=params)
+    response = requests.post(url, data=params)
 
     try:
         resp_content = response.json()
