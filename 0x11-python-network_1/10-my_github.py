@@ -27,5 +27,8 @@ if __name__ == "__main__":
     response = requests.get(
         f'https://api.github.com/users/{username}', headers=headers)
 
-    response = response.json()
-    print(response['id'])
+    if response.ok:
+        response = response.json()
+        print(response['id'])
+    else:
+        print(None)
