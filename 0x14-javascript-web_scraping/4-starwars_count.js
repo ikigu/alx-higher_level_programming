@@ -3,6 +3,7 @@
 const request = require('request');
 
 const apiEndpoint = process.argv[2];
+const characterId = "18";
 
 request(apiEndpoint, (error, response, body) => {
   if (error) return;
@@ -12,11 +13,11 @@ request(apiEndpoint, (error, response, body) => {
   let movieCount = 0;
 
   for (let i = 0; i < responseObject.length; i++) {
-    const searchCharacter = 'https://swapi-api.alx-tools.com/api/people/18/';
-
-    if (responseObject[i].characters.includes(searchCharacter)) {
-      movieCount++;
-    }
+	responseObject[i].characters.forEach(character => {
+	  if (character.includes(characterId)) {
+		movieCount++;
+	  }
+	});
   }
 
   console.log(movieCount);
